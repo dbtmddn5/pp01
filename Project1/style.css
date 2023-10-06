@@ -1,0 +1,23 @@
+.textCenter {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 50vh;
+}
+
+.center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 10px;
+}
+
+.button {
+    position: absolute;
+    top: 50%;
+    background-color: blue;
+    color: white;
+    padding: 5px;
+    min-height: 15px;
+    min-width: 500px;
+}
