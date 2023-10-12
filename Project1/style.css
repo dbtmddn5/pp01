@@ -41,3 +41,21 @@ button {
     color: white;
     border-radius: 5px;
 }
+
+.left-divider {
+    border-left: thin solid #000;
+    height: 100%;
+    left: 10%;
+    position: absolute;
+}
+
+.menu {
+    position: fixed;
+}
+
+.upper {
+    border-left: thin solod #000;
+    height: 100%;
+    left: 10%;
+    position: absolute;
+}
