@@ -28,3 +28,16 @@
 .fifth {
     float: left;
 }
+.btn-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+button {
+    width: 300px;
+    margin: auto;
+    background-color: blue;
+    color: white;
+    border-radius: 5px;
+}
