@@ -1,0 +1,61 @@
+.parent {
+    width: 90%;
+    margin: 10px auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 20vh;
+}
+
+.first {
+    float: left;
+    width: 17px;
+}
+
+.second {
+    float: left;
+    margin-left: 10%;
+}
+
+.third {
+    float: left;    
+}
+
+.fourth {
+    float: left;
+}
+
+.fifth {
+    float: left;
+}
+.btn-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+button {
+    width: 300px;
+    margin: auto;
+    background-color: blue;
+    color: white;
+    border-radius: 5px;
+}
+
+.left-divider {
+    border-left: thin solid #000;
+    height: 100%;
+    left: 10%;
+    position: absolute;
+}
+
+.menu {
+    position: fixed;
+}
+
+.upper {
+    border-left: thin solod #000;
+    height: 100%;
+    left: 10%;
+    position: absolute;
+}
