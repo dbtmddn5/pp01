@@ -38,7 +38,7 @@
         </div>
 
     <?php
-        include 'sql.php';
+    include 'sql.php';
     ?>
 </body>
 </html>
