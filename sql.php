@@ -1,12 +1,13 @@
 <?php
 // 데이터베이스 연결 설정
-$servername = "localhost";  
+$servername = "localhost:8889";  
 $username = "root";    
-$password = "";     
+$password = "root";     
 $dbname = "pp01";  
+$port = "3306";
 
 // MySQL에 연결
-$conn = new mysqli($servername, $username, $password, $dbname);
+$conn = new mysqli($servername, $username, $password, $dbname, $port);
 
 // 연결 오류 확인
 if ($conn->connect_error) {
@@ -34,11 +35,11 @@ if ($result->num_rows > 0) {
     while ($row = $result->fetch_assoc()) {
         echo "<tr>";
         echo "<td style='border: 1px solid black;'>".$id."</td>";
-        echo "<td style='border: 1px solid black;'>".$row["last_name"]."</td>";
-        echo "<td style='border: 1px solid black;'>".$row["first_name"]."</td>";
+        echo "<td style='border: 1px solid black;'>".$row["lastName"]."</td>";
+        echo "<td style='border: 1px solid black;'>".$row["firstName"]."</td>";
         echo "<td style='border: 1px solid black;'>".$row["birthday"]."</td>";
-        echo "<td style='border: 1px solid black;'>".$row["created_day"]."</td>";
-        echo "<td style='border: 1px solid black;'>".$row["updated_day"]."</td>";
+        echo "<td style='border: 1px solid black;'>".$row["createdDay"]."</td>";
+        echo "<td style='border: 1px solid black;'>".$row["updatedDay"]."</td>";
         echo "</tr>";
 
         $id++;
