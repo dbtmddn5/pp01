@@ -50,6 +50,21 @@ if ($result->num_rows > 0) {
   	echo "No Data";
 }
 
+if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+    $column1 = $_POST["column1"];
+    $column2 = $_POST["column2"];
+
+    $insert_sql = "INSERT INTO content (lastName, firstName, birthday, createdDay, updatedDay) 
+    VALUES ('$column1', '$column2')";
+
+    if ($conn->query($insert_sql) == TRUE) {
+        echo "SUCCESS";
+    } else {
+        echo "Failed :" . $conn->error;
+    }
+    
+}
+
 // MySQL 연결 종료
 $conn->close();
 ?>
