@@ -4,10 +4,9 @@ $servername = "localhost:8889";
 $username = "root";    
 $password = "root";     
 $dbname = "pp01";  
-$port = "3306";
 
 // MySQL에 연결
-$conn = new mysqli($servername, $username, $password, $dbname, $port);
+$conn = new mysqli($servername, $username, $password, $dbname);
 
 // 연결 오류 확인
 if ($conn->connect_error) {
