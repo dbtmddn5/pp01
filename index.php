@@ -37,8 +37,8 @@
             <button type="submit">登録</button>
         </div>
 
-    <?php
-    include 'sql.php';
+    <?
+    include_once "sql.php";
     ?>
 </body>
 </html>

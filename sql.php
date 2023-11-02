@@ -1,37 +1,56 @@
 <?php
-$host = 'localhost'; // 데이터베이스 호스트
-$dbUsername = 'root'; // 데이터베이스 사용자 이름
-$dbPassword = ''; // 데이터베이스 비밀번호
-$dbName = 'pp01'; // 데이터베이스 이름
-$tableName = 'content'; // 테이블 이름
+// 데이터베이스 연결 설정
+$servername = "localhost";  
+$username = "root";    
+$password = "";     
+$dbname = "pp01";  
 
-// 데이터베이스 연결
-$conn = new mysqli($host, $dbUsername, $dbPassword, $dbName);
+// MySQL에 연결
+$conn = new mysqli($servername, $username, $password, $dbname);
 
-// 연결 확인
+// 연결 오류 확인
 if ($conn->connect_error) {
-    die("Fail to connect: " . $conn->connect_error);
+    die("Connection failed: " . $conn->connect_error);
 }
 
-// 테이블에서 데이터 가져오기
-$sql = "SELECT * FROM $tableName";
-$result = $conn->query($sql);
-
-// 테이블 생성
-echo "<table>";
-echo "<tr><th>性</th><th>名</th><th>生年月日</th>th>作成日</th>th>更新日</th></tr>";
+// 등록된 데이터 조회하기
+$sql_select = "SELECT * FROM content";
+$result = $conn->query($sql_select);
 
 if ($result->num_rows > 0) {
-    // 결과 출력
+    echo "<div style='display: flex; justify-content: center;'>";
+    echo "<table style='margin: 100px auto; border-collapse: collapse;'>";
+    echo "<tr>
+            <th style='border: 1px solid black; background-color: lightgray;'>ID</th>
+            <th style='border: 1px solid black; background-color: lightgray;'>姓</th>
+            <th style='border: 1px solid black; background-color: lightgray;'>名</th>
+            <th style='border: 1px solid black; background-color: lightgray;'>生年月日</th>
+            <th style='border: 1px solid black; background-color: lightgray;'>作成日</th>
+            <th style='border: 1px solid black; background-color: lightgray;'>更新日</th>
+        </tr>";
+    
+    $id = 1;
+
     while ($row = $result->fetch_assoc()) {
-        echo "<tr><td>" . $row["lastName"] . "</td><td>" . $row["firstName"] . "</td><td>" . $row["birthday"] . "</td><td>" . $row["createdDay"] . "</td><td>" . "</td><td>" . $row["updatedDay"] . "</td></tr>";
+        echo "<tr>";
+        echo "<td style='border: 1px solid black;'>".$id."</td>";
+        echo "<td style='border: 1px solid black;'>".$row["last_name"]."</td>";
+        echo "<td style='border: 1px solid black;'>".$row["first_name"]."</td>";
+        echo "<td style='border: 1px solid black;'>".$row["birthday"]."</td>";
+        echo "<td style='border: 1px solid black;'>".$row["created_day"]."</td>";
+        echo "<td style='border: 1px solid black;'>".$row["updated_day"]."</td>";
+        echo "</tr>";
+
+        $id++;
     }
+
+    echo "</table>";
+    echo "</div>";
 } else {
-    echo "<tr><td colspan='3'>No Data</td></tr>";
+  	echo "No Data";
 }
 
-echo "</table>";
-
-// 연결 종료
+// MySQL 연결 종료
 $conn->close();
 ?>
+
