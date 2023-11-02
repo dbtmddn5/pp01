@@ -53,12 +53,15 @@ if ($result->num_rows > 0) {
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $column1 = $_POST["column1"];
     $column2 = $_POST["column2"];
+    $column3 = $_POST["column3"];
+    $column4 = $_POST["column4"];
+    $column5 = $_POST["column5"];
 
     $insert_sql = "INSERT INTO content (lastName, firstName, birthday, createdDay, updatedDay) 
-    VALUES ('$column1', '$column2')";
+    VALUES ('$column1', '$column2', '$column3', '$column4', '$column5')";
 
     if ($conn->query($insert_sql) == TRUE) {
-        echo "SUCCESS";
+        echo "Register SUCCESS";
     } else {
         echo "Failed :" . $conn->error;
     }

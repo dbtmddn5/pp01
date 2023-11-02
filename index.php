@@ -17,21 +17,22 @@
         <div class = 'parent'>
 
             <div class='first'>姓<br>
-                <input type = 'text' name='first_name'>
+                <input type = 'text' id='column1' name='first_name'>
             </div>
             <div class = 'second'>名<br>
-                <input type = 'text' name='last_name'>
+                <input type = 'text' id='column2' name='last_name'>
             </div>
             <div class = 'third'>生年月日<br>
-                <input type = 'text' name='birthday'>
+                <input type = 'text' id='column3' name='birthday'>
             </div>
             <div class = 'fourth'>作成日<br>
-                <input type = 'text' name='created_day'>
+                <input type = 'text' id='column4' name='created_day'>
             </div>
             <div class = 'fifth'>更新日<br>
-                <input type = 'text' name='updated_day'>
+                <input type = 'text' id='column5' name='updated_day'>
             </div>
         </div>
+
 
         <div class = 'btn-container'>
             <button type="submit">登録</button>
