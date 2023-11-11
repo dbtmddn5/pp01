@@ -49,7 +49,7 @@
     </form>
 
     <?php
-    include_once "sql.php";
+    include_once "table.php";
     ?>
 </body>
 </html>

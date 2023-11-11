@@ -9,15 +9,15 @@ $dbname = "pp01";
 $conn = new mysqli($servername, $username, $password, $dbname);
 
 // 연결 오류 확인
-if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
+if ($conn -> connect_error) {
+    die("Connection failed: " . $conn -> connect_error);
 }
 
 // 등록된 데이터 조회하기
 $sql_select = "SELECT * FROM content";
-$result = $conn->query($sql_select);
+$result = $conn -> query($sql_select);
 
-if ($result->num_rows > 0) {
+if ($result -> num_rows > 0) {
     echo "<div style='display: flex; justify-content: center;'>";
     echo "<table style='margin: 100px auto; border-collapse: collapse;'>";
     echo "<tr>
@@ -31,7 +31,7 @@ if ($result->num_rows > 0) {
     
     $id = 1;
 
-    while ($row = $result->fetch_assoc()) {
+    while ($row = $result -> fetch_assoc()) {
         echo "<tr>";
         echo "<td style='border: 1px solid black;'>".$id."</td>";
         echo "<td style='border: 1px solid black;'>".$row["lastName"]."</td>";
@@ -51,6 +51,6 @@ if ($result->num_rows > 0) {
 }
 
 // MySQL 연결 종료
-$conn->close();
+$conn -> close();
 ?>
 
