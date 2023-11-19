@@ -77,7 +77,7 @@ if ($conn->query($insert_sql) === TRUE) {
     echo "登録失敗" . $conn->error;
 }
 
-$select_sql = "SELECT * FROM content";
+$select_sql = "SELECT * FROM conten";
 $result = $conn -> query($select_sql);
 $conn -> close();
 ?>
