@@ -48,27 +48,27 @@ if ($conn->query($insert_sql) === TRUE) {
 
     echo "<tr>";
     echo "<th style='border: 1px solid black; background-color: lightgray;'>姓</th>";
-    echo "<td style='border: 1px solid black;'>".$last_name."</td>";
+    echo "<td style='border: 1px solid black;'><input type = 'text' name = 'ULN' value = '".$last_name."'></td>";
     echo "</tr>";
 
     echo "<tr>";
     echo "<th style='border: 1px solid black; background-color: lightgray;'>名</th>";
-    echo "<td style='border: 1px solid black;'>".$first_name."</td>";
+    echo "<td style='border: 1px solid black;'><input type = 'text' name = 'UFN' value = '".$first_name."'></td>";
     echo "</tr>";
 
     echo "<tr>";
     echo "<th style='border: 1px solid black; background-color: lightgray;'>生年月日</th>";
-    echo "<td style='border: 1px solid black;'>".$birthday."</td>";
+    echo "<td style='border: 1px solid black;'><input type = 'text' name = 'UBD' value = '".$birthday."'></td>";
     echo "</tr>";
 
     echo "<tr>";
     echo "<th style='border: 1px solid black; background-color: lightgray;'>作成日</th>";
-    echo "<td style='border: 1px solid black;'>".$created_day."</td>";
+    echo "<td style='border: 1px solid black;'><input type = 'text' name = 'UCD' value = '".$created_day."'</td>";
     echo "</tr>";
 
     echo "<tr>";
     echo "<th style='border: 1px solid black; background-color: lightgray;'>更新日</th>";
-    echo "<td style='border: 1px solid black;'>".$updated_day."</td>";
+    echo "<td style='border: 1px solid black;'><input type = 'text' name = 'UUD' value = '".$updated_day."'></td>";
     echo "</tr>";
 
     echo "</table>";
@@ -77,7 +77,27 @@ if ($conn->query($insert_sql) === TRUE) {
     echo "登録失敗" . $conn->error;
 }
 
-$select_sql = "SELECT * FROM conten";
+$select_sql = "SELECT * FROM content";
 $result = $conn -> query($select_sql);
 $conn -> close();
 ?>
+
+<form action = "" method = "post">
+    <div style="text-align: center;">
+        <input type = "submit" value = "更新" 
+        style = "
+        width: 200px;
+        background-color: green;
+        color: white;
+        border-radius: 5px;
+        border-color: black;">
+
+        <input type = "submit" value = "削除"
+        style = "
+        width: 200px;
+        background-color: red;
+        color: white;
+        border-radius: 5px;
+        border-color: black;">
+    </div>
+</form>
