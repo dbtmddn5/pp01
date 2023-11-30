@@ -36,7 +36,7 @@ $updated_day = $_POST["updated_day"];
 // 데이터 삽입 쿼리
 $insert_sql = "INSERT INTO content (lastName, firstName, birthday, createdDay, updatedDay) 
 VALUES ('$last_name', '$first_name', '$birthday', '$created_day', '$updated_day')";
-if ($conn->query($insert_sql) === TRUE) {
+if ($conn->query($insert_sql) == TRUE) {
     $id = mysqli_insert_id($conn);
     echo "<div style='display: flex; justify-content: center;'>";
     echo "<table style='margin: 100px auto; border-collapse: collapse;'>";
@@ -82,7 +82,7 @@ $result = $conn -> query($select_sql);
 $conn -> close();
 ?>
 
-<form action = "" method = "post">
+<form action = "edit_data.php" method = "post">
     <div style="text-align: center;">
         <input type = "submit" value = "更新" 
         style = "
@@ -90,14 +90,20 @@ $conn -> close();
         background-color: green;
         color: white;
         border-radius: 5px;
-        border-color: black;">
+        border-color: black;
+        ">
+    </div>
+</form>
 
-        <input type = "submit" value = "削除"
+<form action = "delete_data.php" method = "post">
+    <div style="text-align: center;">
+        <input type = "submit" value = "削除" 
         style = "
         width: 200px;
         background-color: red;
         color: white;
         border-radius: 5px;
-        border-color: black;">
+        border-color: black;
+        ">
     </div>
 </form>
