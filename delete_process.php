@@ -1,32 +1,34 @@
 <?php
+//データーベースのアクセス情報
 $servername = "localhost";  
 $username = "root";  
 $password = "root";   
 $dbname = "pp01"; 
 
-$data0 = $_POST['UID'];
-$data1 = $_POST['ULN'];
-$data2 = $_POST['UFN'];
-$data3 = $_POST['UBD'];
-$data4 = $_POST['UCD'];
-$data5 = $_POST['UUD'];
+//修正したデータを変数に代入
+$data0 = $_GET['UID'];
+//var_dump($_GET);
+//exit;
 
 $conn = new mysqli($servername, $username, $password, $dbname);
 
+//データーベースのエラ処理
 if ($conn->connect_error) {
     die("MySQL connection failed: " . $conn->connect_error);
 }
 
-$sql = "UPDATE content 
-        SET lastName ='$data1', firstName ='$data2', birthday = '$data3', createdDay = '$data4', updatedDay = '$data5'
+//データーベースの削除query
+$sql = "DELETE FROM content 
         WHERE id = '$data0'";
 
+//削除に成功したら、index.phpへ移動
 if ($conn->query($sql) == TRUE) {
     header("Location: index.php");
     exit;
 } else {
-    echo "Updated failed: " . $conn->error;
+    echo "delete failed: " . $conn->error;
 }
 
+//データーベースへの接続終了
 $conn->close();
 ?>

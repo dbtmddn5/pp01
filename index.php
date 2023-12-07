@@ -6,6 +6,7 @@
     <title>一覧</title>
 </head>
 <style>
+    /* 登録ボタンのスタイル */
     input[type=submit] {
         width: 300px;
         margin: auto;
@@ -49,24 +50,25 @@
     </form>
 
 <?php
-// 데이터베이스 연결 설정
+// データーベースの接続設定
 $servername = "localhost:8889";  
 $username = "root";    
 $password = "root";     
 $dbname = "pp01";  
 
-// MySQL에 연결
+// データーベースへ接続
 $conn = new mysqli($servername, $username, $password, $dbname);
 
-// 연결 오류 확인
+// 接続エラー確認
 if ($conn -> connect_error) {
     die("Connection failed: " . $conn -> connect_error);
 }
 
-// 등록된 데이터 조회하기
+// 登録したデータの確認
 $sql_select = "SELECT * FROM content";
 $result = $conn -> query($sql_select);
 
+//テーブルヘッダ
 if ($result -> num_rows > 0) {
     echo "<div style='display: flex; justify-content: center;'>";
     echo "<table style='margin: 100px auto; border-collapse: collapse;'>";
@@ -79,7 +81,7 @@ if ($result -> num_rows > 0) {
             <th style='border: 1px solid black; background-color: lightgray;'>更新日</th>
         </tr>";
 
-        
+    //テーブルの仕様    
     while ($row = $result -> fetch_assoc()) {
         echo "<tr>";
         echo '<td style="border: 1px solid black;"><a href="edit_page.php?id=' . $row['id'] . '">' . $row['id'] . '</a></td>';
@@ -97,10 +99,8 @@ if ($result -> num_rows > 0) {
   	echo "No Data";
 }
 
-// MySQL 연결 종료
+// データーベース接続終了
 $conn -> close();
 ?>
-
-
 </body>
 </html>

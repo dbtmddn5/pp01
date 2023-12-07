@@ -43,13 +43,6 @@ if ($row = $result->fetch_assoc()) {
     <title>一覧</title>
 </head>
 <style>
-    input[type=submit] {
-        width: 300px;
-        margin: auto;
-        background-color: blue;
-        color: white;
-        border-radius: 5px;
-    }
 </style>
 <body>
 
@@ -61,52 +54,56 @@ if ($row = $result->fetch_assoc()) {
         
         <div class="left-divider"></div>
 
-        <form action = 'update_prosess.php' method = 'post'>
+        <form action = 'update_process.php' method = 'post'>
                 <div style='display: flex; justify-content: center;'>
                 <table style='margin: 100px auto; border-collapse: collapse;'>
                 
                 <tr>
-                <th style='border: 1px solid black; background-color: lightgray;'>ID</th>
-                <td style='border: 1px solid black;'><input type = 'hidden' name = 'UID' value = '<?php echo $id ?>'><?php echo $id ?></td>
+                    <th style='border: 1px solid black; background-color: lightgray;'>ID</th>
+                    <td style='border: 1px solid black;'><input type = 'hidden' name = 'UID' value = '<?php echo $id ?>'><?php echo $id ?></td>
                 </tr>
 
                 <tr>
-                <th style='border: 1px solid black; background-color: lightgray;'>姓</th>
-                <td style='border: 1px solid black;'><input type = 'text' name = 'ULN' value = '<?php echo $LN ?>'></td>
+                    <th style='border: 1px solid black; background-color: lightgray;'>姓</th>
+                    <td style='border: 1px solid black;'><input type = 'text' name = 'ULN' value = '<?php echo $LN ?>'></td>
                 </tr>
 
                 <tr>
-                <th style='border: 1px solid black; background-color: lightgray;'>名</th>
-                <td style='border: 1px solid black;'><input type = 'text' name = 'UFN' value = '<?php echo $FN ?>'></td>
+                    <th style='border: 1px solid black; background-color: lightgray;'>名</th>
+                    <td style='border: 1px solid black;'><input type = 'text' name = 'UFN' value = '<?php echo $FN ?>'></td>
                 </tr>
 
                 <tr>
-                <th style='border: 1px solid black; background-color: lightgray;'>生年月日</th>
-                <td style='border: 1px solid black;'><input type = 'text' name = 'UBD' value = '<?php echo $BD ?>'></td>
+                    <th style='border: 1px solid black; background-color: lightgray;'>生年月日</th>
+                    <td style='border: 1px solid black;'><input type = 'text' name = 'UBD' value = '<?php echo $BD ?>'></td>
                 </tr>
 
                 <tr>
-                <th style='border: 1px solid black; background-color: lightgray;'>作成日</th>
-                <td style='border: 1px solid black;'><input type = 'text' name = 'UCD' value = '<?php echo $CD ?>'</td>
+                    <th style='border: 1px solid black; background-color: lightgray;'>作成日</th>
+                    <td style='border: 1px solid black;'><input type = 'text' name = 'UCD' value = '<?php echo $CD ?>'</td>
                 </tr>
 
                 <tr>
-                <th style='border: 1px solid black; background-color: lightgray;'>更新日</th>
-                <td style='border: 1px solid black;'><input type = 'text' name = 'UUD' value = '<?php echo $UD ?>'></td>
+                    <th style='border: 1px solid black; background-color: lightgray;'>更新日</th>
+                    <td style='border: 1px solid black;'><input type = 'text' name = 'UUD' value = '<?php echo $UD ?>'></td>
                 </tr>
                 </table>
 
-<br>
+            <br>
     
+            <!-- 更新ボタンの実装 -->
             <input type = "submit" value = "更新" 
             style = "
             width: 200px;
+            margin: auto;
             background-color: green;
             color: white;
             border-radius: 5px;
             border-color: black;
             ">
+            
+            
+            <a href = "delete_process.php?UID=<?php echo $id ?>">削除</a>
         </form>
-
 </body>
 </html>
