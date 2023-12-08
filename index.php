@@ -34,13 +34,13 @@
                 <input type = 'text' id='userFN' name='first_name'>
             </div>
             <div class = 'third'>生年月日<br>
-                <input type = 'text' id='userBD' name='birthday'>
+                <input type = 'date' id='userBD' name='birthday'>
             </div>
             <div class = 'fourth'>作成日<br>
-                <input type = 'text' id='userCD' name='created_day'>
+                <input type = 'date' id='userCD' name='created_day'>
             </div>
             <div class = 'fifth'>更新日<br>
-                <input type = 'text' id='userUD' name='updated_day'>
+                <input type = 'date' id='userUD' name='updated_day'>
             </div>
         </div>
 

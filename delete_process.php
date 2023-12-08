@@ -5,16 +5,21 @@ $username = "root";
 $password = "root";   
 $dbname = "pp01"; 
 
-//修正したデータを変数に代入
-$data0 = $_GET['UID'];
-//var_dump($_GET);
-//exit;
-
 $conn = new mysqli($servername, $username, $password, $dbname);
 
 //データーベースのエラ処理
 if ($conn->connect_error) {
     die("MySQL connection failed: " . $conn->connect_error);
+}
+
+var_dump($_GET['UID']);
+var_dump($_POST['UID']);
+exit;
+
+//修正したデータを変数に代入
+$data0 = $_GET['UID'];
+if($data0 == "") {
+    $data0 = $_POST['UID'];
 }
 
 //データーベースの削除query

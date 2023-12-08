@@ -31,7 +31,6 @@ if ($row = $result->fetch_assoc()) {
     $UD = $row['updatedDay'];
 }
 
-//var_dump($LN);
 
 
 ?>
@@ -60,7 +59,10 @@ if ($row = $result->fetch_assoc()) {
                 
                 <tr>
                     <th style='border: 1px solid black; background-color: lightgray;'>ID</th>
-                    <td style='border: 1px solid black;'><input type = 'hidden' name = 'UID' value = '<?php echo $id ?>'><?php echo $id ?></td>
+                    <td style='border: 1px solid black;'>
+                        <input type = 'hidden' name = 'UID' value = '<?php echo $id ?>'>
+                        <?php echo $id ?>
+                    </td>
                 </tr>
 
                 <tr>
@@ -75,17 +77,17 @@ if ($row = $result->fetch_assoc()) {
 
                 <tr>
                     <th style='border: 1px solid black; background-color: lightgray;'>生年月日</th>
-                    <td style='border: 1px solid black;'><input type = 'text' name = 'UBD' value = '<?php echo $BD ?>'></td>
+                    <td style='border: 1px solid black;'><input type = 'date' name = 'UBD' value = '<?php echo $BD ?>'></td>
                 </tr>
 
                 <tr>
                     <th style='border: 1px solid black; background-color: lightgray;'>作成日</th>
-                    <td style='border: 1px solid black;'><input type = 'text' name = 'UCD' value = '<?php echo $CD ?>'</td>
+                    <td style='border: 1px solid black;'><input type = 'date' name = 'UCD' value = '<?php echo $CD ?>'</td>
                 </tr>
 
                 <tr>
                     <th style='border: 1px solid black; background-color: lightgray;'>更新日</th>
-                    <td style='border: 1px solid black;'><input type = 'text' name = 'UUD' value = '<?php echo $UD ?>'></td>
+                    <td style='border: 1px solid black;'><input type = 'date' name = 'UUD' value = '<?php echo $UD ?>'></td>
                 </tr>
                 </table>
 
@@ -101,9 +103,21 @@ if ($row = $result->fetch_assoc()) {
             border-radius: 5px;
             border-color: black;
             ">
-            
-            
-            <a href = "delete_process.php?UID=<?php echo $id ?>">削除</a>
+        </form>
+
+
+        <form action = 'delete_process.php' method = 'post'>
+                <input type = 'hidden' name = 'UID' value = '<?php echo $id ?>'>
+                <!-- 更新ボタンの実装 -->
+                <input type = "submit" value = "post+form削除" 
+                style = "
+                width: 200px;
+                margin: auto;
+                background-color: red;
+                color: white;
+                border-radius: 5px;
+                border-color: black;
+                ">
         </form>
 </body>
 </html>
