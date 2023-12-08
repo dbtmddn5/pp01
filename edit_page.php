@@ -32,7 +32,6 @@ if ($row = $result->fetch_assoc()) {
 }
 
 
-
 ?>
 <!DOCTYPE html>
 <html lang="ja">
@@ -42,6 +41,10 @@ if ($row = $result->fetch_assoc()) {
     <title>一覧</title>
 </head>
 <style>
+    .center-table {
+        display: flex;
+        justify-content: center;
+    }
 </style>
 <body>
 
@@ -49,13 +52,11 @@ if ($row = $result->fetch_assoc()) {
             <a href="index.php">顧客管理</a>
         </div>
 
-        <div class="upper"></div>
-        
         <div class="left-divider"></div>
 
         <form action = 'update_process.php' method = 'post'>
-                <div style='display: flex; justify-content: center;'>
-                <table style='margin: 100px auto; border-collapse: collapse;'>
+                <div style='justify-content: center;'>
+                <table style='margin: auto; border-collapse: collapse;'>
                 
                 <tr>
                     <th style='border: 1px solid black; background-color: lightgray;'>ID</th>
@@ -91,17 +92,19 @@ if ($row = $result->fetch_assoc()) {
                 </tr>
                 </table>
 
-            <br>
+            
     
             <!-- 更新ボタンの実装 -->
-            <input type = "submit" value = "更新" 
+            <input type = "submit" value = "更新"
             style = "
             width: 200px;
-            margin: auto;
+            margin-top: 30px;
+            margin-left: 400px;
             background-color: green;
             color: white;
             border-radius: 5px;
             border-color: black;
+            float: left;
             ">
         </form>
 
@@ -109,10 +112,10 @@ if ($row = $result->fetch_assoc()) {
         <form action = 'delete_process.php' method = 'post'>
                 <input type = 'hidden' name = 'UID' value = '<?php echo $id ?>'>
                 <!-- 更新ボタンの実装 -->
-                <input type = "submit" value = "post+form削除" 
+                <input type = "submit" value = "削除"
                 style = "
                 width: 200px;
-                margin: auto;
+                margin-top: 30px;
                 background-color: red;
                 color: white;
                 border-radius: 5px;

@@ -12,15 +12,12 @@ if ($conn->connect_error) {
     die("MySQL connection failed: " . $conn->connect_error);
 }
 
-var_dump($_GET['UID']);
-var_dump($_POST['UID']);
-exit;
+//var_dump($_GET['UID']);
+//var_dump($_POST['UID']);
+//exit;
 
 //修正したデータを変数に代入
-$data0 = $_GET['UID'];
-if($data0 == "") {
-    $data0 = $_POST['UID'];
-}
+$data0 = $_POST['UID'];
 
 //データーベースの削除query
 $sql = "DELETE FROM content 
