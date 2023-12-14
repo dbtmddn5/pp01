@@ -40,6 +40,17 @@ if ($row = $result->fetch_assoc()) {
     <link rel = "stylesheet" href = "style.css">
     <title>一覧</title>
 </head>
+<script>
+    function call_confirm() {
+        var rtn;
+        rtn = confirm("本当に削除しますか?");
+        if(rtn) {
+            document.getElementById('frm').submit();
+        }else{
+            return false;
+        }
+    }
+</script>
 <style>
     .center-table {
         display: flex;
@@ -99,7 +110,7 @@ if ($row = $result->fetch_assoc()) {
             style = "
             width: 200px;
             margin-top: 30px;
-            margin-left: 400px;
+            margin-left: 500px;
             background-color: green;
             color: white;
             border-radius: 5px;
@@ -109,10 +120,10 @@ if ($row = $result->fetch_assoc()) {
         </form>
 
 
-        <form action = 'delete_process.php' method = 'post'>
+        <form name = 'frm' action = 'delete_process.php' method = 'post' onsubmit="return confirm('本当に削除しますか？')">
                 <input type = 'hidden' name = 'UID' value = '<?php echo $id ?>'>
                 <!-- 更新ボタンの実装 -->
-                <input type = "submit" value = "削除"
+                <input type = "submit" value = "削除" 
                 style = "
                 width: 200px;
                 margin-top: 30px;
